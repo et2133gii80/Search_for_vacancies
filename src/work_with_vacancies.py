@@ -6,6 +6,7 @@ class Vacancy:
     """ класс для работы с вакансиями """
     dataset: dict
     df_categories: DataFrame
+    __slots__ = ('vacancy_name','vacancy_link','area','salary', 'salary_from','salary_to')
 
     def __init__(self, vacancy_name: str, vacancy_link: str, salary, area: str):
         """ инициализация элементов проверки """
