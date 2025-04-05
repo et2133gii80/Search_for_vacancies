@@ -12,7 +12,7 @@ class HeadHunterAPI(ParsingData):
     vacancy: str
     params: dict
 
-    url = "https://api.hh.ru/vacancies"
+    __url = "https://api.hh.ru/vacancies"
 
     def __init__(self, city='Moscow', number_of_city=1, page=1, vacancy='Python'):
         self.city = city
@@ -20,6 +20,7 @@ class HeadHunterAPI(ParsingData):
         self.page = page
         self.vacancy = vacancy
         self.params = self.get_params()
+
 
     def get_params(self):
         params = {
@@ -33,7 +34,7 @@ class HeadHunterAPI(ParsingData):
 
     @classmethod
     def get_url(cls):
-        return cls.url
+        return cls.__url
 
     def parsing_data(self):
         data = requests.get(url=self.get_url(), params=self.params)
